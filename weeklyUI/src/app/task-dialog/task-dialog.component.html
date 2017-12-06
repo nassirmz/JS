@@ -1,3 +1,10 @@
-<p>
-  task-dialog works!
-</p>
+<h1 mat-dialog-title>Add Task</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>  <mat-form-field>
+    <input matInput tabindex="1" [(ngModel)]="data.task.taskName">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.task.taskName" tabindex="2">Ok</button>
+  <button mat-button >No Thanks</button>
+</div>
