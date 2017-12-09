@@ -16,7 +16,7 @@ export class AddTaskComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '250px',
+      width: '400px',
       data: { task: this.task }
     });
 
@@ -29,7 +29,7 @@ export class AddTaskComponent implements OnInit {
     this.task = {
       taskName: '',
       points: 1,
-      days: []
+      days: ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
     };
   }
 

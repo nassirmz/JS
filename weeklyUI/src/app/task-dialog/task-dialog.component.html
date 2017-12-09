@@ -1,8 +1,23 @@
 <h1 mat-dialog-title>Add Task</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>  <mat-form-field>
-    <input matInput tabindex="1" [(ngModel)]="data.task.taskName">
+  <mat-form-field>
+    <input matInput tabindex="1" [(ngModel)]="data.task.taskName" placeholder="Name">
   </mat-form-field>
+  <mat-form-field>
+    <input matInput tabindex="2" [(ngModel)]="data.task.points" placeholder="Points">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Days" [formControl]="daysControl" multiple>
+      <mat-select-trigger>
+        {{data.task.days ? data.task.days[0] : ''}}
+        <span *ngIf="data.task.days?.length > 1">
+        (+{{data.task.days.length - 1}} others)
+      </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let day of data.task.days" [value]="day">{{day}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
 </div>
 <div mat-dialog-actions>
   <button mat-button [mat-dialog-close]="data.task.taskName" tabindex="2">Ok</button>
