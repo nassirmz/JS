@@ -1,6 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
-import { FormControl } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-task-dialog',
@@ -9,10 +8,15 @@ import { FormControl } from '@angular/forms';
 })
 export class TaskDialogComponent implements OnInit {
 
-  daysControl = new FormControl();
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(
+    public dialogRef: MatDialogRef<TaskDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     console.log('data', this.data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   ngOnInit() {
